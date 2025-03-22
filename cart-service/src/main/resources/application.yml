@@ -1,12 +1,24 @@
-
 spring:
   application:
-    name: product-service
+    name: cart-service
+  eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+
   datasource:
-    url: jdbc:postgresql://localhost:5432/katatest-product
+    url: jdbc:postgresql://localhost:5432/katatest-shopping
     username: postgres
     password: osm
     driver-class-name: org.postgresql.Driver
+
+    cloud:
+      discovery:
+        enabled: true
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -18,11 +30,7 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 server:
-  port: 8092
+  port: 8091
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    prefer-ip-address: true
+
+     

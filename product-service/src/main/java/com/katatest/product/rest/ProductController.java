@@ -20,7 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List;
 
-@RequestMapping("/api/katatest")
+@RequestMapping("/api/katatest/product")
 @CrossOrigin(origins = "http://localhost:4200")
 @AllArgsConstructor
 @RestController
