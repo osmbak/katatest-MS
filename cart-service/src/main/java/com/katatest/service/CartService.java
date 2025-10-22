@@ -6,11 +6,11 @@ import com.katatest.enteties.CartItem;
 
 public interface CartService {
 
-     Cart addProductToCart(Long productId) ;
+     Cart addProductToCart(long productId) ;
 
      CartItem updateCartItemQuantity(CartItem cartItem, int newQuantity , String operation);
 
-     void removeCartItem(Long itemId);
+     void removeCartItem(long itemId);
 
      Cart getCart(Long cartId);
 }

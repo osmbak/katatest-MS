@@ -5,7 +5,7 @@ package com.kataTest.back.service;
 import com.kataTest.back.DTO.AuthResponseDto;
 import com.kataTest.back.DTO.LoginRequestDto;
 import com.kataTest.back.DTO.RegisterRequestDto;
-import com.kataTest.back.config.sec.JwtUtil;
+import com.kataTest.back.security.JwtUtil;
 import com.kataTest.back.enteties.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;

@@ -7,6 +7,9 @@ spring:
     username: postgres
     password: osm
     driver-class-name: org.postgresql.Driver
+
+  cloud.loadbalancer.enabled: true
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -17,6 +20,10 @@ spring:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
+
+  main:
+    allow-bean-definition-overriding: true
+
 server:
   port: 8092
 
@@ -26,3 +33,4 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   instance:
     prefer-ip-address: true
+

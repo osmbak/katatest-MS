@@ -25,13 +25,12 @@ public class CartController {
         return ResponseEntity.ok(cartService.getCart(cartId));
     }
 
-    @PosMapping("/add/{productId]")
+    @PostMapping("/add/{productId}")
     public ResponseEntity<Cart> updateCartItemQuantityController(@PathVariable long productId) {
-        cartService.addProductToCart(productId);
-        return ResponseEntity.ok(updatedCart);
+        Cart cart = cartService.addProductToCart(productId);
+        return ResponseEntity.ok(cart);
     }
 
-    // 🔹 Mettre à jour la quantité d’un article
     @PutMapping("/update")
     public ResponseEntity<Cart> updateCartItemQuantityController(
 
@@ -45,9 +44,8 @@ public class CartController {
         return ResponseEntity.ok(updatedCart);
     }
 
-    // 🔹 Supprimer un article du panier
     @DeleteMapping("/remove/{itemId}")
-    public ResponseEntity<Void> removeCartItem(@PathVariable Long itemId) {
+    public ResponseEntity<Void> removeCartItem(@PathVariable long itemId) {
         cartService.removeCartItem(itemId);
         return ResponseEntity.noContent().build();
     }

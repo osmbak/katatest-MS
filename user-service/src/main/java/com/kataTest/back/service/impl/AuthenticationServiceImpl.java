@@ -21,7 +21,7 @@ public class AuthenticationServiceImpl implements AuthentificationService {
     private final UserRepository repository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
-    private final AuthenticationManager authenticationManager;
+        private final AuthenticationManager authenticationManager;
 
     @Override
     public String register(RegisterRequest request) {

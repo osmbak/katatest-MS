@@ -1,10 +1,7 @@
 package com.katatest.service.impl;
 
-import com.katatest.Dto.ProductDTO;
-import com.katatest.Dto.UserDTO;
 import com.katatest.enteties.Cart;
 import com.katatest.enteties.CartItem;
-import com.katatest.feignClient.IProductClient;
 import com.katatest.feignClient.IUserClient;
 import com.katatest.repositoy.CartItemRepository;
 import com.katatest.repositoy.CartRepository;
@@ -22,19 +19,17 @@ public class CartServiceImpl implements CartService {
 
         private final CartItemRepository cartItemRepository;
 
-        private final IProductClient productClient;
 
         private final IUserClient iUserClient;
 
-    public CartServiceImpl(CartRepository cartRepository, CartItemRepository cartItemRepository, IProductClient productClient, IUserClient iUserClient) {
+    public CartServiceImpl(CartRepository cartRepository, CartItemRepository cartItemRepository, IUserClient iUserClient) {
         this.cartRepository = cartRepository;
         this.cartItemRepository = cartItemRepository;
-        this.productClient = productClient;
         this.iUserClient = iUserClient;
     }
 
     @Override
-        public Cart addProductToCart(Long productId) {
+        public Cart addProductToCart(long productId) {
         String userDto = iUserClient.getUserConnected().toString();
         Cart cart = cartRepository.findByUser(userDto).orElseGet(() -> {
             Cart newCart = new Cart();
@@ -47,7 +42,7 @@ public class CartServiceImpl implements CartService {
 
 
         Optional<CartItem> existingCartItem = cart.getItems().stream()
-                .filter(item -> item.getProductId().equals(productId))
+                .filter(item -> item.getProductId()==productId)
                 .findFirst();
 
         if (existingCartItem.isPresent()) {
@@ -91,7 +86,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public void removeCartItem(Long itemId) {
+    public void removeCartItem(long itemId) {
         if (!cartItemRepository.existsById(itemId)) {
             throw new RuntimeException("Article non trouvé");
         }

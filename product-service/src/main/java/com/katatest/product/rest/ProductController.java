@@ -45,8 +45,8 @@ public class ProductController {
         return productR.findAll();
     }
 
-    @GetMapping("/product/{id}")
-    ResponseEntity<Product> getProduct(@PathVariable Long id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<Product> getProduct(@PathVariable Long id) {
         log.info("get product id{} :     " + id);
         return productService.getProduct(id)
                 .map(ResponseEntity::ok)

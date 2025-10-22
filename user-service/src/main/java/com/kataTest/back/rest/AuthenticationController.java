@@ -3,7 +3,6 @@ package com.kataTest.back.rest;
 import com.kataTest.back.DTO.AuthResponseDto;
 import com.kataTest.back.DTO.LoginRequestDto;
 import com.kataTest.back.DTO.RegisterRequestDto;
-import com.kataTest.back.enteties.User;
 import com.kataTest.back.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

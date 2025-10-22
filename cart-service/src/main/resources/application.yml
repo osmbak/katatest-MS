@@ -1,13 +1,9 @@
-spring:
-  application:
-    name: cart-service
-  eureka:
-    client:
-      service-url:
-        defaultZone: http://localhost:8761/eureka/
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
   instance:
     prefer-ip-address: true
-
 
   datasource:
     url: jdbc:postgresql://localhost:5432/katatest-shopping
@@ -31,6 +27,7 @@ spring:
 
 server:
   port: 8091
+
 
 
      
